@@ -46,15 +46,16 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.36",
-    "storybook": "^10.2.10",
-    "@storybook/react-webpack5": "^10.2.10",
-    "@storybook/preset-create-react-app": "^10.2.10",
     "@storybook/addon-a11y": "^10.2.10",
     "@storybook/addon-docs": "^10.2.10",
     "@storybook/addon-onboarding": "^10.2.10",
-    "webpack": "^5.105.2",
+    "@storybook/preset-create-react-app": "^10.2.10",
+    "@storybook/react": "^10.2.10",
+    "@storybook/react-webpack5": "^10.2.10",
+    "@types/styled-components": "^5.1.36",
+    "eslint-plugin-storybook": "^10.2.10",
     "prop-types": "^15.8.1",
-    "eslint-plugin-storybook": "^10.2.10"
+    "storybook": "^10.2.10",
+    "webpack": "^5.105.2"
   }
 }
