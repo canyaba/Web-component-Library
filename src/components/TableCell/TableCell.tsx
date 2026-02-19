@@ -6,6 +6,11 @@ const Cell = styled.td`
   padding: 0.5rem;
 `;
 
+export interface TableCellProps {
+  children?: React.ReactNode;
+}
+
 export const TableCell: React.FC<TableCellProps> = ({ children }) => {
   return <Cell>{children}</Cell>;
 };
+
