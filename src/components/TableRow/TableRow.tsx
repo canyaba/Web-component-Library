@@ -1,8 +1,5 @@
 import React from 'react';
-
-interface TableRowProps {
-  children: React.ReactNode;
-}
+import type { TableRowProps } from './TableRow.types';
 
 export const TableRow: React.FC<TableRowProps> = ({ children }) => {
   return <tr>{children}</tr>;
