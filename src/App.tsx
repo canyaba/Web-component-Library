@@ -1,26 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Button } from './components/Button/Button';
+import { Card } from './components/Card/Card';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ padding: '40px' }}>
+      <h1>UI Garden Component Library</h1>
+      <Button label="Primary Button" />
+      <Card title="Sample Card">Card Content</Card>
     </div>
   );
 }
 
 export default App;
+
