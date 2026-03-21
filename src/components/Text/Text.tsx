@@ -8,7 +8,11 @@ const sizeMap: Record<TextSize, string> = {
   large: '1.25rem',
 };
 
-const StyledText = styled.p<{ $size: TextSize; $bgColor?: string; $disabled?: boolean }>`
+const StyledText = styled.p<{
+  $size: TextSize;
+  $bgColor?: string;
+  $disabled?: boolean;
+}>`
   font-size: ${({ $size }) => sizeMap[$size]};
   padding: 0.25rem 0.4rem;
   border-radius: 6px;

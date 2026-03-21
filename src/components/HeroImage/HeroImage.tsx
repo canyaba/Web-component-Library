@@ -24,7 +24,7 @@ const TextOverlay = styled.div`
   bottom: 1rem;
   left: 1rem;
   color: white;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 
   h2 {
     margin: 0;

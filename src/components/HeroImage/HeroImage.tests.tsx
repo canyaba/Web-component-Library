@@ -10,6 +10,8 @@ describe('HeroImage Component', () => {
 
   test('disabled state applies cursor', () => {
     render(<HeroImage src="hero.jpg" heading="Disabled Hero" disabled />);
-    expect(screen.getByAltText(/disabled hero/i)).toHaveStyle('cursor: not-allowed');
+    expect(screen.getByAltText(/disabled hero/i)).toHaveStyle(
+      'cursor: not-allowed'
+    );
   });
 });

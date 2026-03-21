@@ -10,4 +10,3 @@ const Cell = styled('td')`
 export const TableCell: React.FC<TableCellProps> = ({ children }) => {
   return <Cell>{children}</Cell>;
 };
-

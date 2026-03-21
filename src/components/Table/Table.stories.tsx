@@ -19,7 +19,9 @@ export const Default: Story = {
     children: (
       <>
         <tbody>
-          <tr><td>Example</td></tr>
+          <tr>
+            <td>Example</td>
+          </tr>
         </tbody>
       </>
     ),

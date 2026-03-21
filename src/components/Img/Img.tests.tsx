@@ -10,6 +10,8 @@ describe('Img Component', () => {
 
   test('disabled state changes cursor', () => {
     render(<Img src="test.jpg" alt="Disabled Image" disabled />);
-    expect(screen.getByAltText(/disabled image/i)).toHaveStyle('cursor: not-allowed');
+    expect(screen.getByAltText(/disabled image/i)).toHaveStyle(
+      'cursor: not-allowed'
+    );
   });
 });

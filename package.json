@@ -23,9 +23,25 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:ci": "react-scripts test --watchAll=false --runInBand",
     "eject": "react-scripts eject",
+    "lint": "eslint src .storybook --ext .js,.jsx,.ts,.tsx --max-warnings=0",
+    "lint:fix": "eslint src .storybook --ext .js,.jsx,.ts,.tsx --fix",
+    "format": "prettier \".github/workflows/*.{yml,yaml}\" \".storybook/**/*.{js,jsx,ts,tsx}\" \"public/**/*.{html,json}\" \"src/**/*.{js,jsx,ts,tsx,css}\" \"*.{json,md}\" \".*ignore\" \".prettierrc\" \"Dockerfile\" \"nginx.conf\" --write --ignore-unknown",
+    "format:check": "prettier \".github/workflows/*.{yml,yaml}\" \".storybook/**/*.{js,jsx,ts,tsx}\" \"public/**/*.{html,json}\" \"src/**/*.{js,jsx,ts,tsx,css}\" \"*.{json,md}\" \".*ignore\" \".prettierrc\" \"Dockerfile\" \"nginx.conf\" --check --ignore-unknown",
+    "validate": "npm run format:check && npm run lint && npm run test:ci",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --check",
+      "eslint --max-warnings=0"
+    ],
+    "*.{css,md,json,yml,yaml}": [
+      "prettier --check"
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -55,6 +71,9 @@
     "@storybook/react-webpack5": "^10.2.10",
     "@types/styled-components": "^5.1.36",
     "eslint-plugin-storybook": "^10.2.10",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.2",
+    "prettier": "^3.8.1",
     "prop-types": "^15.8.1",
     "storybook": "^10.2.10",
     "webpack": "^5.105.2"

@@ -19,10 +19,7 @@ const StyledLabel = styled.span<{ $bgColor?: string; $disabled?: boolean }>`
 
 export const Label: React.FC<LabelProps> = ({ text, bgColor, disabled }) => {
   return (
-    <StyledLabel
-      $bgColor={disabled ? '#f3f4f6' : bgColor}
-      $disabled={disabled}
-    >
+    <StyledLabel $bgColor={disabled ? '#f3f4f6' : bgColor} $disabled={disabled}>
       {text}
     </StyledLabel>
   );
