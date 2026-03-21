@@ -1,84 +1,189 @@
-## Anyaba Chibuike UI Garden
+# Anyaba Chibuike UI Garden: Assignment 13
 
-A React + TypeScript Component Library built using:
+This project extends the Assignment 12 React + TypeScript UI component library by adding local build checks with Husky, repository validation with GitHub Actions, and a production Docker image that serves the Storybook build on `http://localhost:8018`.
 
-- Create React App (CRA)
+## Technology Stack
+
+- React + TypeScript
+- Create React App
 - Storybook
-- styled-components
+- ESLint
+- Prettier
 - Jest + React Testing Library
-- Docker (Production Deployment on Port 8083)
+- Husky + lint-staged
+- GitHub Actions
+- Docker + Nginx
 
----
+## Assignment 13 Requirements Covered
 
-## Project Overview
-This project demonstrates the creation of a reusable and responsive UI component library.
+- Reuse the existing UI Component Library and Storybook project
+- Block commits when formatting, linting, or tests fail
+- Run the same checks on every GitHub push
+- Build a production Docker image
+- Serve the component library on `localhost:8018`
+- Use Docker workdir `/anyaba_chibuike_ui_garden_build_checks`
+- Run the container as `anyaba_chibuike_coding_assignment13`
 
-Each component includes:
-- Styled-components for styling
-- Default and disabled states
-- Storybook controls for prop manipulation
-- Unit tests validating rendering and disabled state behavior
-- Production Docker deployment
+## Project Structure
 
----
+```text
+.github/workflows/ci.yml
+.husky/pre-commit
+.storybook/
+src/
+.dockerignore
+.eslintignore
+.prettierignore
+.prettierrc
+Dockerfile
+README.md
+nginx.conf
+package.json
+package-lock.json
+```
 
 ## Prerequisites
-Before running this project, ensure you have:
 
-- Node.js (v18+ recommended)
+- Node.js 18+
 - npm
-- Docker Desktop (must be running for container deployment)
+- Git
+- Docker Desktop
 
-Verify installations:
-node -v
-npm -v
-docker --version
+PowerShell note:
 
-## Getting Started with Create React App
-npx create-react-app lastName_firstName_ui_garden --template typescript
+- If `npm` or `npx` is blocked by execution policy, use `npm.cmd` and `npx.cmd`.
 
-## Navigate to ht project folder
-cd lastName_firstName_ui_garden
+## Install Dependencies
 
-## Instal Dependencies
-npm install
+```powershell
+npm.cmd install
+```
 
-## Sanity check
-npm start
+## Local Development
 
-Runs the app in the development mode.\
+Run the React app:
 
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```powershell
+npm.cmd start
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Run Storybook:
 
-## Install Styled Components
-npm install styled-components
-npm install -D @types/styled-components
+```powershell
+npm.cmd run storybook
+```
 
+Open Storybook at:
 
-## UI Garden Component Library
-npm run storybook
-
-Runs the app in the development
+```text
 http://localhost:6006
+```
 
-React + TypeScript Component Library built with Storybook and styled-components.
+## Quality Checks
 
-## Production Docker Build
-Build image:
+Check Prettier formatting:
 
-docker build -t ui_garden_prod .
+```powershell
+npm.cmd run format:check
+```
 
-Run container:
+Lint the project:
 
-docker run --name lastName_firstName_coding_assignment12 -p 8083:8083 ui_garden_prod
+```powershell
+npm.cmd run lint
+```
 
-Open:
+Run all tests once:
 
-http://127.0.0.1:8083
+```powershell
+npm.cmd run test:ci
+```
 
-## Production Docker Build
-docker stop lastName_firstName_coding_assignment12
-docker rm lastName_firstName_coding_assignment12
+Run the full validation pipeline:
+
+```powershell
+npm.cmd run validate
+```
+
+## Husky Pre-Commit Hook
+
+Every commit runs:
+
+1. `npx lint-staged`
+2. `npm run test:ci`
+
+If formatting, ESLint, or tests fail, the commit is blocked.
+
+## GitHub Actions
+
+The workflow file is:
+
+```text
+.github/workflows/ci.yml
+```
+
+On every `push` and `pull_request`, GitHub Actions runs:
+
+1. `npm ci`
+2. `npm run format:check`
+3. `npm run lint`
+4. `npm run test:ci`
+5. `npm run build-storybook`
+
+This catches failures even if local Husky hooks are bypassed.
+
+## Docker Production Build
+
+The production image builds the static Storybook output and serves it with Nginx.
+
+Build the image:
+
+```powershell
+docker build -t anyaba_chibuike_ui_garden_assignment13 .
+```
+
+Run the container:
+
+```powershell
+docker run --name anyaba_chibuike_coding_assignment13 -p 8018:80 anyaba_chibuike_ui_garden_assignment13
+```
+
+Open the production build at:
+
+```text
+http://localhost:8018
+```
+
+Stop and remove the container:
+
+```powershell
+docker stop anyaba_chibuike_coding_assignment13
+docker rm anyaba_chibuike_coding_assignment13
+```
+
+## Demo Checklist
+
+1. Show `.husky/pre-commit`.
+2. Show `.github/workflows/ci.yml`.
+3. Introduce a formatting, lint, or test error.
+4. Attempt a commit and show Husky blocks it.
+5. Fix the issue and run `npm.cmd run validate`.
+6. Push broken code with Husky bypassed if you need to demonstrate CI catching it:
+
+```powershell
+git commit --no-verify -m "demo broken checks"
+git push
+```
+
+7. Show GitHub Actions failing.
+8. Fix the issue, push again, and show GitHub Actions passing.
+9. Build the Docker image.
+10. Run the container and open `http://localhost:8018`.
+
+## Final Submission
+
+Submit:
+
+1. `Dockerfile`
+2. `README.md`
+3. Working GitHub repository link
