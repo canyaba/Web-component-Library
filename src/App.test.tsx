@@ -8,7 +8,7 @@ test('renders the UI garden heading and sample components', () => {
     screen.getByRole('heading', { name: /ui garden component library/i })
   ).toBeInTheDocument();
   expect(
-    screen.getByRole('button', { name: /primary button/i })
+    screen.getByRole('button', { name: /primarry button/i })
   ).toBeInTheDocument();
   expect(
     screen.getByRole('region', { name: /sample card/i })
