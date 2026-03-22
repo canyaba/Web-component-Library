@@ -1,6 +1,6 @@
-# Anyaba Chibuike UI Garden: Assignment 13
+# Anyaba Chibuike UI Garden
 
-This project extends the Assignment 12 React + TypeScript UI component library by adding local build checks with Husky, repository validation with GitHub Actions, and a production Docker image that serves the Storybook build on `http://localhost:8018`.
+This project uses React + TypeScript UI component library by adding local build checks with Husky, repository validation with GitHub Actions, and a production Docker image that serves the Storybook build on `http://localhost:8018`.
 
 ## Technology Stack
 
@@ -14,7 +14,7 @@ This project extends the Assignment 12 React + TypeScript UI component library b
 - GitHub Actions
 - Docker + Nginx
 
-## Assignment 13 Requirements Covered
+## Requirements Covered
 
 - Reuse the existing UI Component Library and Storybook project
 - Block commits when formatting, linting, or tests fail
@@ -179,11 +179,3 @@ git push
 8. Fix the issue, push again, and show GitHub Actions passing.
 9. Build the Docker image.
 10. Run the container and open `http://localhost:8018`.
-
-## Final Submission
-
-Submit:
-
-1. `Dockerfile`
-2. `README.md`
-3. Working GitHub repository link
