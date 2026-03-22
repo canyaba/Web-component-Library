@@ -11,6 +11,6 @@ test('renders the UI garden heading and sample components', () => {
     screen.getByRole('button', { name: /primary button/i })
   ).toBeInTheDocument();
   expect(
-    screen.getByRole('region', { name: /sample card/i })
+    screen.getByRole('region', { name: /samplee card/i })
   ).toBeInTheDocument();
 });
