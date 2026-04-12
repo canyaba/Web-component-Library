@@ -1,17 +1,19 @@
 FROM node:20-alpine AS build
 
-WORKDIR /anyaba_chibuike_ui_garden_build_checks
+WORKDIR /anyaba_chibuike_final_site
 
 COPY package*.json ./
-RUN npm install --no-audit --no-fund
+RUN npm ci --no-audit --no-fund
 
 COPY . .
-RUN npm run build-storybook
+RUN npm run build
 
-FROM nginx:alpine
+FROM nginx:alpine AS production
+
+WORKDIR /anyaba_chibuike_final_site
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=build /anyaba_chibuike_ui_garden_build_checks/storybook-static /usr/share/nginx/html
+COPY --from=build /anyaba_chibuike_final_site/build ./
 
 EXPOSE 80
 
