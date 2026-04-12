@@ -12,6 +12,7 @@
     "@types/node": "^16.18.126",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "lucide-react": "^1.8.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-scripts": "5.0.1",
@@ -20,8 +21,14 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "build:css": "tailwindcss -i ./src/tailwind.css -o ./src/tailwind.generated.css --config ./tailwind.config.cjs",
+    "watch:css": "tailwindcss -i ./src/tailwind.css -o ./src/tailwind.generated.css --config ./tailwind.config.cjs --watch",
+    "prestart": "npm run build:css",
     "start": "react-scripts start",
+    "prebuild": "npm run build:css",
     "build": "react-scripts build",
+    "prestorybook": "npm run build:css",
+    "pretest": "npm run build:css",
     "test": "react-scripts test",
     "test:ci": "react-scripts test --watchAll=false --runInBand",
     "eject": "react-scripts eject",
@@ -31,13 +38,14 @@
     "format:check": "prettier \".github/workflows/*.{yml,yaml}\" \".storybook/**/*.{js,jsx,ts,tsx}\" \"public/**/*.{html,json}\" \"src/**/*.{js,jsx,ts,tsx,css}\" \"*.{json,md}\" \".*ignore\" \".prettierrc\" \"Dockerfile\" \"nginx.conf\" --check --ignore-unknown",
     "validate": "npm run format:check && npm run lint && npm run test:ci",
     "storybook": "storybook dev -p 6006",
+    "prebuild-storybook": "npm run build:css",
     "build-storybook": "storybook build",
     "prepare": "husky"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --check",
-      "eslint --max-warnings=0"
+      "eslint --max-warnings=0 --no-warn-ignored"
     ],
     "*.{css,md,json,yml,yaml}": [
       "prettier --check"
@@ -70,12 +78,16 @@
     "@storybook/react": "^10.2.10",
     "@storybook/react-webpack5": "^10.2.10",
     "@types/styled-components": "^5.1.36",
+    "autoprefixer": "^10.4.27",
     "eslint-plugin-storybook": "^10.2.10",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.2",
+    "postcss": "^8.5.9",
     "prettier": "^3.8.1",
     "prop-types": "^15.8.1",
     "storybook": "^10.2.10",
-    "webpack": "^5.105.2"
+    "tailwindcss": "^3.4.19",
+    "webpack": "^5.105.2",
+    "yaml": "^2.8.3"
   }
 }
