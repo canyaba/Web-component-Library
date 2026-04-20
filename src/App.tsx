@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
 import {
+  ArrowUpRight,
   BadgeCheck,
   BookOpen,
   Briefcase,
   Code2,
   FolderGit2,
   ShieldCheck,
-  Sparkles,
   Terminal,
   Wrench,
 } from 'lucide-react';
@@ -21,6 +21,7 @@ import {
 } from './PortfolioData';
 import {
   ContactPanel,
+  HeroFrame,
   PortfolioNavbar,
   ProjectCard,
   SectionShell,
@@ -58,135 +59,79 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
+    <div className="min-h-screen overflow-x-hidden bg-ink text-mist">
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute left-[8%] top-20 h-72 w-72 rounded-full bg-blue-500/12 blur-3xl" />
-        <div className="absolute bottom-20 right-[10%] h-72 w-72 rounded-full bg-cyan-400/8 blur-3xl" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(138,166,199,0.09),transparent_24%),radial-gradient(circle_at_85%_14%,rgba(90,100,124,0.08),transparent_22%),linear-gradient(180deg,rgba(255,255,255,0.02),transparent_18%)]" />
+        <div className="absolute inset-0 opacity-[0.13] [background-image:linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:radial-gradient(circle_at_center,black,transparent_78%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_48%,rgba(0,0,0,0.55)_100%)]" />
       </div>
 
       <PortfolioNavbar name={basicInfo.name} items={navigationItems} />
 
-      <main className="relative mx-auto flex max-w-7xl flex-col gap-24 px-4 pb-16 pt-28 sm:px-6 lg:px-8">
-        <section
-          id="home"
-          className="grid scroll-mt-28 gap-6 lg:grid-cols-[1.2fr_0.8fr]"
-        >
-          <div className="rounded-[2.5rem] border border-white/10 bg-white/[0.04] p-8 shadow-[0_24px_80px_rgba(2,6,23,0.34)] backdrop-blur-xl sm:p-10">
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.32em] text-blue-300">
-                  Home
-                </p>
-                <div className="space-y-4">
-                  <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                    {basicInfo.name}
-                  </h1>
-                  <p className="max-w-3xl text-lg font-medium text-blue-300 sm:text-xl">
-                    {basicInfo.headline}
-                  </p>
-                </div>
-                <p className="max-w-3xl text-base leading-8 text-slate-300 sm:text-lg">
-                  {basicInfo.bio}
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-3">
-                {[
-                  basicInfo.location,
-                  'Minimal UI systems',
-                  'Production-aware workflow',
-                ].map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1 text-sm font-medium text-blue-200"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <a
-                  href="#projects"
-                  className="inline-flex items-center justify-center rounded-full bg-blue-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/70"
-                >
-                  View Projects
-                </a>
-                <a
-                  href="#contact"
-                  className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-blue-400/30 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/70"
-                >
-                  Contact Me
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid gap-6">
-            <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-[0_24px_80px_rgba(2,6,23,0.34)]">
-              <div className="space-y-4">
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-blue-300">
-                  <Sparkles size={20} />
-                </div>
-                <h2 className="text-xl font-semibold text-white">
-                  Focused on clarity and delivery
-                </h2>
-                <p className="text-sm leading-7 text-slate-300">
-                  The redesign keeps the presentation minimal while still
-                  feeling intentional, polished, and aligned with a frontend
-                  component-library assignment.
-                </p>
-              </div>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-3">
-              {[
-                ['3', 'Project cards'],
-                ['5', 'Primary nav links'],
-                ['1', 'Consistent design system'],
-              ].map(([value, label]) => (
-                <div
-                  key={label}
-                  className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-5 shadow-[0_24px_80px_rgba(2,6,23,0.2)]"
-                >
-                  <p className="text-3xl font-semibold text-blue-300">
-                    {value}
-                  </p>
-                  <p className="mt-2 text-xs uppercase tracking-[0.24em] text-slate-400">
-                    {label}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+      <main className="relative mx-auto flex max-w-7xl flex-col gap-28 px-4 pb-20 pt-24 sm:px-6 lg:px-8">
+        <HeroFrame
+          eyebrow="Home"
+          name={basicInfo.name}
+          headline={basicInfo.headline}
+          description={basicInfo.bio}
+          tags={[
+            basicInfo.location,
+            'Component-library workflow',
+            'Production-aware implementation',
+          ]}
+          primaryAction={{
+            href: '#projects',
+            label: 'View Projects',
+          }}
+          secondaryAction={{
+            href: '#contact',
+            label: 'Contact',
+          }}
+          metrics={[
+            {
+              label: 'Current Focus',
+              value: 'Frontend systems',
+              detail:
+                'Building interfaces with clearer hierarchy, cleaner structure, and more deliberate interaction design.',
+            },
+            {
+              label: 'Working Mode',
+              value: 'Calm and methodical',
+              detail:
+                'I work best where visual quality, implementation discipline, and delivery reliability are all expected at the same time.',
+            },
+          ]}
+        />
 
         <SectionShell
           id="about"
           eyebrow="About"
-          title="Professional summary and working style"
-          description="This section replaces the old generic summary blocks with cleaner, more focused portfolio messaging."
+          title="Identity, standards, and the way I approach product work"
+          description="This section is intentionally quieter. The goal is to communicate mindset and direction without falling into resume clutter."
         >
-          <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-[0_24px_80px_rgba(2,6,23,0.34)] sm:p-8">
-              <div className="space-y-5">
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-blue-300">
+          <div className="grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
+            <div className="rounded-[2.45rem] border border-white/10 bg-white/[0.035] p-7 shadow-frame backdrop-blur-xl sm:p-9">
+              <div className="space-y-6">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-accent/20 bg-accent/10 text-accent-soft">
                   <Briefcase size={20} />
                 </div>
-                <div className="space-y-3">
-                  <h3 className="text-2xl font-semibold text-white">
-                    A portfolio inside a component library context
+                <div className="space-y-4">
+                  <h3 className="font-display text-3xl font-semibold tracking-[-0.04em] text-white">
+                    I value restraint, clarity, and systems that feel built to
+                    last.
                   </h3>
-                  <p className="text-sm leading-7 text-slate-300">
-                    Instead of treating this as a standalone marketing page, the
-                    redesign keeps the code organized as reusable portfolio
-                    primitives that still fit the assignment repository and can
-                    be reviewed inside Storybook.
+                  <p className="max-w-2xl text-sm leading-8 text-slate-400">
+                    My interest sits where interface design and implementation
+                    quality overlap. I care about surfaces that feel clean, but
+                    I care more about structure, consistency, and whether the
+                    underlying system still feels solid after the visuals fade
+                    into the background.
                   </p>
-                  <p className="text-sm leading-7 text-slate-300">
-                    The emphasis is on stronger typography, more deliberate
-                    spacing, cleaner section boundaries, and a calmer visual
-                    system that feels modern without becoming noisy.
+                  <p className="max-w-2xl text-sm leading-8 text-slate-400">
+                    Because this portfolio exists inside a component-library
+                    assignment repository, the design choices here are meant to
+                    be reusable, inspectable, and practical rather than purely
+                    decorative.
                   </p>
                 </div>
               </div>
@@ -196,13 +141,13 @@ function App() {
               {aboutHighlights.map((highlight) => (
                 <article
                   key={highlight.title}
-                  className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-5 shadow-[0_24px_80px_rgba(2,6,23,0.22)]"
+                  className="rounded-[1.9rem] border border-white/10 bg-white/[0.03] p-5 shadow-panel"
                 >
-                  <div className="space-y-2">
-                    <h3 className="text-lg font-semibold text-white">
+                  <div className="space-y-3">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-500">
                       {highlight.title}
-                    </h3>
-                    <p className="text-sm leading-7 text-slate-300">
+                    </p>
+                    <p className="text-base leading-7 text-slate-300">
                       {highlight.detail}
                     </p>
                   </div>
@@ -215,14 +160,14 @@ function App() {
         <SectionShell
           id="skills"
           eyebrow="Skills"
-          title="Technical strengths and workflow tools"
+          title="Curated technical range, not a scattered tool list"
           description={skills.description}
         >
           <div className="grid gap-6 md:grid-cols-6">
             <div className="md:col-span-4">
               <SkillPanel
                 title="Languages / Frameworks"
-                description="Core technologies used across application and UI assignments."
+                description="Core technologies used across interface work, data-backed applications, and full-stack assignments."
                 items={skills.languagesAndFrameworks}
                 icon={Code2}
               />
@@ -231,57 +176,61 @@ function App() {
             <div className="md:col-span-2">
               <SkillPanel
                 title="Tools"
-                description="Delivery, debugging, and development workflow tools."
+                description="The workflow layer behind debugging, collaboration, and deployment readiness."
                 items={skills.tools}
                 icon={Wrench}
               />
             </div>
 
             <div className="md:col-span-3">
-              <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-[0_24px_80px_rgba(2,6,23,0.34)]">
-                <div className="space-y-5">
-                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-blue-300">
+              <article className="h-full rounded-[2.2rem] border border-white/10 bg-white/[0.03] p-6 shadow-panel sm:p-7">
+                <div className="space-y-6">
+                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-accent/20 bg-accent/10 text-accent-soft">
                     <BookOpen size={20} />
                   </div>
-                  <div className="space-y-3">
-                    <h3 className="text-xl font-semibold text-white">
+                  <div className="space-y-4">
+                    <h3 className="font-display text-2xl font-semibold tracking-[-0.03em] text-white">
                       Developer setup
                     </h3>
-                    <p className="text-sm leading-7 text-slate-300">
+                    <p className="text-sm leading-7 text-slate-400">
                       {devSetup.vscodeSetup}
                     </p>
-                    <p className="text-sm leading-7 text-slate-300">
+                    <p className="text-sm leading-7 text-slate-400">
                       {devSetup.terminalSetup}
                     </p>
                   </div>
                 </div>
-              </div>
+              </article>
             </div>
 
             <div className="md:col-span-3">
-              <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-[0_24px_80px_rgba(2,6,23,0.34)]">
-                <div className="space-y-5">
-                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-blue-300">
+              <article className="h-full rounded-[2.2rem] border border-white/10 bg-white/[0.03] p-6 shadow-panel sm:p-7">
+                <div className="space-y-6">
+                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-accent/20 bg-accent/10 text-accent-soft">
                     <Terminal size={20} />
                   </div>
-                  <div className="space-y-3">
-                    <h3 className="text-xl font-semibold text-white">
-                      Supporting references
+                  <div className="space-y-4">
+                    <h3 className="font-display text-2xl font-semibold tracking-[-0.03em] text-white">
+                      Environment notes
                     </h3>
-                    <p className="text-sm leading-7 text-slate-300">
+                    <p className="text-sm leading-7 text-slate-400">
+                      Preferred editor font: {devSetup.preferredEditorFont}
+                    </p>
+                    <p className="text-sm leading-7 text-slate-400">
                       {devSetup.supportingResource.summary}
                     </p>
                     <a
                       href={devSetup.supportingResource.link}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex text-sm font-semibold text-blue-300 transition hover:text-blue-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/70"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-accent-soft transition duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
                     >
                       {devSetup.supportingResource.title}
+                      <ArrowUpRight size={16} />
                     </a>
                   </div>
                 </div>
-              </div>
+              </article>
             </div>
           </div>
         </SectionShell>
@@ -289,14 +238,18 @@ function App() {
         <SectionShell
           id="projects"
           eyebrow="Portfolio / Projects"
-          title="Selected work with clearer visual rhythm"
-          description="Project cards now use a shared visual treatment so the section feels curated instead of stacked."
+          title="Selected work with more atmosphere, structure, and visual restraint"
+          description="This section carries more weight than before. The cards are darker, more spacious, and less generic so the work feels considered instead of simply listed."
         >
           <div className="grid gap-6 md:grid-cols-6">
             {workItems.map((item, index) => (
               <div
                 key={item.title}
-                className={`md:col-span-3 ${index === 0 ? 'lg:col-span-4' : ''}`}
+                className={`${
+                  index === 0
+                    ? 'md:col-span-6 lg:col-span-4'
+                    : 'md:col-span-3 lg:col-span-2'
+                }`}
               >
                 <ProjectCard
                   title={item.title}
@@ -308,19 +261,39 @@ function App() {
                 />
               </div>
             ))}
+
+            <article className="md:col-span-6 rounded-[2.2rem] border border-white/10 bg-white/[0.03] p-6 shadow-panel sm:p-7">
+              <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+                <div className="space-y-4">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-500">
+                    Project posture
+                  </p>
+                  <h3 className="font-display text-2xl font-semibold tracking-[-0.03em] text-white">
+                    The visual treatment is quieter so the structure of the work
+                    can speak more clearly.
+                  </h3>
+                </div>
+                <p className="max-w-3xl text-sm leading-8 text-slate-400">
+                  Rather than pushing bright callouts or loud gradients, the
+                  project layer now relies on proportion, contrast, spacing, and
+                  material restraint. That gives the cards a stronger sense of
+                  permanence and makes the portfolio feel less like a template.
+                </p>
+              </div>
+            </article>
           </div>
         </SectionShell>
 
         <SectionShell
           id="contact"
           eyebrow="Contact Me"
-          title="Relevant links and next-step contact points"
-          description="The old footer-only treatment is replaced with a dedicated contact section that still stays compact."
+          title="A clear path to the work, profile, and supporting resources"
+          description="The contact area keeps the primary routes visible while making the supporting resources easy to scan during a demonstration."
         >
           <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
             <ContactPanel
               email={basicInfo.email}
-              intro="I am open to internship and junior product or frontend opportunities where I can contribute to clean interfaces, dependable implementation, and thoughtful collaboration."
+              intro="I am open to frontend, full-stack, and product-focused conversations where thoughtful implementation and dependable follow-through matter."
               actions={contactActions}
             />
 
@@ -334,26 +307,27 @@ function App() {
                 return (
                   <article
                     key={resource.title}
-                    className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-5 shadow-[0_24px_80px_rgba(2,6,23,0.22)]"
+                    className="rounded-[1.8rem] border border-white/10 bg-white/[0.03] p-5 shadow-panel"
                   >
                     <div className="space-y-4">
-                      <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-blue-300">
+                      <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-accent/20 bg-accent/10 text-accent-soft">
                         <Icon size={18} />
                       </div>
-                      <div className="space-y-2">
+                      <div className="space-y-2.5">
                         <h3 className="text-lg font-semibold text-white">
                           {resource.title}
                         </h3>
-                        <p className="text-sm leading-7 text-slate-300">
+                        <p className="text-sm leading-7 text-slate-400">
                           {resource.summary}
                         </p>
                         <a
                           href={resource.link}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-2 text-sm font-semibold text-blue-300 transition hover:text-blue-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/70"
+                          className="inline-flex items-center gap-2 text-sm font-semibold text-accent-soft transition duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
                         >
                           Visit link
+                          <ArrowUpRight size={16} />
                         </a>
                       </div>
                     </div>
@@ -367,6 +341,10 @@ function App() {
         <SiteFooter
           name={basicInfo.name}
           lastUpdated={lastUpdated}
+          links={[
+            { label: 'GitHub', href: basicInfo.github },
+            { label: 'LinkedIn', href: basicInfo.linkedin },
+          ]}
           onBackToTop={scrollToTop}
         />
       </main>

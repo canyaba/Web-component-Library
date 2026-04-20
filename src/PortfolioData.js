@@ -4,29 +4,29 @@ const linkedInProfile = 'https://www.linkedin.com/in/chibuike-anyaba';
 export const basicInfo = {
   name: 'Chibuike Anyaba',
   headline:
-    'Frontend-focused developer building clean systems and reliable interfaces',
+    'Designing disciplined interfaces and dependable systems with a calm, modern edge',
   location: 'Winnipeg, MB',
   email: 'chibuikeanyaba@gmail.com',
   linkedin: linkedInProfile,
   github: githubProfile,
-  bio: 'Full Stack Web Development student with hands-on experience building database-driven applications, reusable UI work, and maintainable delivery workflows. I approach product work with a bias for clarity, structured implementation, and practical engineering polish.',
+  bio: 'Full Stack Web Development student focused on frontend implementation, reusable component thinking, and database-backed product work. I gravitate toward interfaces that feel clear, trustworthy, and built with long-term structure in mind.',
 };
 
 export const aboutHighlights = [
   {
-    title: 'Current Focus',
+    title: 'Design Posture',
     detail:
-      'Building frontend projects that balance interface quality, maintainable structure, and deployment readiness.',
+      'I prefer restrained visual systems, clear hierarchy, and interface decisions that hold up under real use rather than quick visual noise.',
   },
   {
-    title: 'Workflow',
+    title: 'Working Standard',
     detail:
-      'Comfortable working through scoped requirements, iterative delivery, debugging, and team-oriented Agile practices.',
+      'My workflow leans on scoped implementation, debugging discipline, and a steady delivery pace supported by linting, testing, and clean handoff habits.',
   },
   {
-    title: 'Component Library Context',
+    title: 'Assignment Context',
     detail:
-      'This portfolio lives inside a UI component library assignment, so reusability and Storybook support remain part of the design approach.',
+      'This portfolio still lives inside a component-library repository, so reusability, Storybook support, and practical architecture are part of the design language.',
   },
 ];
 
@@ -34,7 +34,7 @@ export const workItems = [
   {
     title: 'FitGear Equipment CMS',
     description:
-      'Planned and built a local-business content management system for equipment and category management. Added validation, CRUD workflows, and category-driven views to improve accuracy and day-to-day usability.',
+      'Planned and built a content management system for equipment and category administration. The project focused on dependable CRUD workflows, category-aware structure, and validation that improved daily usability.',
     image:
       'https://placehold.co/800x600/0f172a/93c5fd?text=FitGear+Equipment+CMS',
     link: githubProfile,
@@ -51,7 +51,7 @@ export const workItems = [
   {
     title: 'Academic Full-Stack Projects',
     description:
-      'Applied diploma coursework in web security, databases, Agile delivery, and systems testing across multiple full-stack assignments. The work strengthened implementation discipline and delivery structure across academic projects.',
+      'Applied coursework in web security, databases, Agile delivery, and systems testing across multiple full-stack builds. The result was a stronger standard for implementation structure, reviewability, and release readiness.',
     image:
       'https://placehold.co/800x600/111827/60a5fa?text=Full-Stack+Coursework',
     link: linkedInProfile,
@@ -67,7 +67,7 @@ export const workItems = [
   {
     title: 'Sales Associate Operations',
     description:
-      'Supported retail operations by clarifying customer needs, resolving issues, investigating discrepancies, and escalating when needed. Strengthened communication, problem solving, and dependable execution in a fast-paced environment.',
+      'Worked in a fast-moving retail environment where consistency, customer clarity, and dependable follow-through mattered. That experience sharpened communication, issue handling, and day-to-day execution under pressure.',
     image:
       'https://placehold.co/800x600/172554/93c5fd?text=Operations+%26+Support',
     link: linkedInProfile,
@@ -82,7 +82,7 @@ export const workItems = [
 
 export const skills = {
   description:
-    'The current stack is strongest where interface implementation, database-backed systems, debugging, and delivery workflow overlap.',
+    'The strongest overlap in my current stack is where interface craftsmanship, backend structure, debugging discipline, and delivery workflow meet.',
   languagesAndFrameworks: [
     'JavaScript',
     'PHP',
@@ -112,30 +112,30 @@ export const resources = [
     title: 'GitHub',
     icon: 'FolderGit2',
     summary:
-      'Repository home for source code, version history, and portfolio project links.',
+      'Repository home for source code, version history, and the working record behind portfolio projects.',
     link: githubProfile,
   },
   {
     title: 'LinkedIn',
     icon: 'BadgeCheck',
     summary:
-      'Professional profile covering education, experience, and career direction.',
+      'Professional profile covering education, experience, and the direction of my current work.',
     link: linkedInProfile,
   },
   {
     title: 'OWASP ZAP',
     icon: 'ShieldCheck',
     summary:
-      'Security testing resource that aligns with my coursework in web security and application validation.',
+      'Security testing resource that reflects my interest in application validation, review discipline, and safer delivery practices.',
     link: 'https://www.zaproxy.org/',
   },
 ];
 
 export const devSetup = {
   vscodeSetup:
-    'Visual Studio Code with ESLint, Prettier, GitHub integration, and Docker tooling enabled for a consistent development workflow.',
+    'Visual Studio Code configured with ESLint, Prettier, GitHub integration, and Docker tooling for a cleaner day-to-day development rhythm.',
   terminalSetup:
-    'Zsh with Oh My Zsh, Git aliases, and Docker CLI for container-first workflows.',
+    'Zsh with Oh My Zsh, Git aliases, and Docker CLI for a lightweight, container-aware command-line workflow.',
   preferredEditorFont: 'Fira Code',
   supportingResource: {
     title: 'Docker Documentation',
@@ -149,17 +149,20 @@ export const contactActions = [
   {
     label: 'GitHub',
     href: githubProfile,
-    helper: 'Code samples, assignment repos, and active project history.',
+    helper:
+      'Code samples, assignment repositories, and a clear record of implementation work.',
   },
   {
     label: 'LinkedIn',
     href: linkedInProfile,
-    helper: 'Professional profile, education context, and career direction.',
+    helper:
+      'Professional context, education background, and current career direction.',
   },
   {
     label: 'Supporting Resource',
     href: devSetup.supportingResource.link,
-    helper: 'Reference documentation for packaging and deployment workflows.',
+    helper:
+      'Reference documentation for packaging, deployment, and production-oriented workflow decisions.',
   },
 ];
 
