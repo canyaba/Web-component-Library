@@ -19,25 +19,31 @@ export const ContactPanel: React.FC<ContactPanelProps> = ({
   actions,
 }) => {
   return (
-    <section className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-[0_24px_80px_rgba(2,6,23,0.32)] sm:p-8">
-      <div className="space-y-8">
-        <div className="space-y-4">
-          <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-blue-400/20 bg-blue-500/10 text-blue-300">
+    <section className="relative overflow-hidden rounded-[2.35rem] border border-white/10 bg-white/[0.035] p-6 shadow-frame backdrop-blur-xl sm:p-8">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(138,166,199,0.1),transparent_32%)]" />
+
+      <div className="relative space-y-8">
+        <div className="space-y-5">
+          <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-accent/20 bg-accent/10 text-accent-soft">
             <Mail size={20} />
           </div>
           <div className="space-y-3">
-            <h3 className="text-2xl font-semibold text-white">Contact Me</h3>
-            <p className="max-w-2xl text-sm leading-7 text-slate-300">
+            <h3 className="font-display text-3xl font-semibold tracking-[-0.04em] text-white">
+              Contact Me
+            </h3>
+            <p className="max-w-2xl text-sm leading-7 text-slate-400">
               {intro}
             </p>
             <a
               href={`mailto:${email}`}
-              className="inline-flex text-lg font-medium text-blue-300 transition hover:text-blue-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/70"
+              className="inline-flex text-lg font-medium text-accent-soft transition duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
             >
               {email}
             </a>
           </div>
         </div>
+
+        <div className="h-px w-full bg-gradient-to-r from-white/12 via-white/5 to-transparent" />
 
         <div className="grid gap-4 md:grid-cols-3">
           {actions.map((action) => (
@@ -46,7 +52,7 @@ export const ContactPanel: React.FC<ContactPanelProps> = ({
               href={action.href}
               target="_blank"
               rel="noreferrer"
-              className="group rounded-[1.5rem] border border-white/10 bg-slate-950/40 p-5 transition hover:border-blue-400/30 hover:bg-slate-900/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/70"
+              className="group rounded-[1.7rem] border border-white/10 bg-[#0c0f14]/70 p-5 transition duration-300 hover:border-white/16 hover:bg-[#11151c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between gap-4">
@@ -55,10 +61,10 @@ export const ContactPanel: React.FC<ContactPanelProps> = ({
                   </span>
                   <ArrowUpRight
                     size={16}
-                    className="text-blue-300 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    className="text-accent-soft transition duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white"
                   />
                 </div>
-                <p className="text-sm leading-6 text-slate-300">
+                <p className="text-sm leading-6 text-slate-400">
                   {action.helper}
                 </p>
               </div>

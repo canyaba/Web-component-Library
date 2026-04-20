@@ -16,19 +16,22 @@ export const SectionShell: React.FC<SectionShellProps> = ({
   children,
 }) => {
   return (
-    <section id={id} className="scroll-mt-28 space-y-8">
-      <header className="max-w-3xl space-y-4">
-        <p className="text-xs font-semibold uppercase tracking-[0.32em] text-blue-300">
+    <section id={id} className="scroll-mt-32 space-y-10">
+      <header className="max-w-4xl space-y-5">
+        <p className="text-xs font-semibold uppercase tracking-[0.34em] text-accent-soft">
           {eyebrow}
         </p>
-        <div className="space-y-3">
-          <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+        <div className="space-y-4">
+          <h2 className="font-display text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl lg:text-[2.8rem]">
             {title}
           </h2>
           {description && (
-            <p className="text-base leading-7 text-slate-300">{description}</p>
+            <p className="max-w-3xl text-base leading-8 text-slate-400">
+              {description}
+            </p>
           )}
         </div>
+        <div className="h-px w-full max-w-2xl bg-gradient-to-r from-white/12 via-white/5 to-transparent" />
       </header>
       {children}
     </section>
