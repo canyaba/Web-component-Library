@@ -10,24 +10,27 @@ test('renders the portfolio sections and footer actions', () => {
   ).toBeInTheDocument();
   expect(
     screen.getByRole('heading', {
-      name: /professional summary and working style/i,
+      name: /identity, standards, and the way i approach product work/i,
     })
   ).toBeInTheDocument();
   expect(
     screen.getByRole('heading', {
-      name: /technical strengths and workflow tools/i,
+      name: /curated technical range, not a scattered tool list/i,
     })
   ).toBeInTheDocument();
   expect(
     screen.getByRole('heading', {
-      name: /selected work with clearer visual rhythm/i,
+      name: /selected work with more atmosphere, structure, and visual restraint/i,
     })
   ).toBeInTheDocument();
   expect(
     screen.getByRole('heading', {
-      name: /relevant links and next-step contact points/i,
+      name: /a clear path to the work, profile, and supporting resources/i,
     })
   ).toBeInTheDocument();
+  expect(
+    screen.getByRole('link', { name: /chibuikeanyaba@gmail.com/i })
+  ).toHaveAttribute('href', 'mailto:chibuikeanyaba@gmail.com');
   expect(
     screen.getByRole('button', { name: /back to top/i })
   ).toBeInTheDocument();

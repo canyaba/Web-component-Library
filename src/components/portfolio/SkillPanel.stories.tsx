@@ -15,7 +15,7 @@ export const Default: Story = {
   args: {
     title: 'Languages / Frameworks',
     description:
-      'Core technologies used across current academic and portfolio work.',
+      'Core technologies used across current application, UI, and portfolio work.',
     items: ['JavaScript', 'PHP', 'Python', 'SQL', 'HTML', 'CSS'],
     icon: Code2,
   },

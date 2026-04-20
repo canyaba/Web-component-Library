@@ -14,8 +14,8 @@ export const Default: Story = {
   args: {
     title: 'FitGear Equipment CMS',
     description:
-      'Database-backed business CMS with validation, CRUD flows, and a cleaner admin experience.',
-    image: 'https://placehold.co/800x600/0f172a/93c5fd?text=Project+Preview',
+      'Database-backed business CMS with stronger CRUD structure, validation, and a cleaner administrative experience.',
+    image: 'https://placehold.co/800x600/0c0f14/c4cfdb?text=Project+Preview',
     link: 'https://github.com/canyaba',
     techList: ['PHP', 'JavaScript', 'SQL', 'XAMPP'],
   },

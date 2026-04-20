@@ -14,6 +14,13 @@ export const Default: Story = {
   args: {
     name: 'Chibuike Anyaba',
     lastUpdated: 'April 12, 2026, 2:45 PM',
+    links: [
+      { label: 'GitHub', href: 'https://github.com/canyaba' },
+      {
+        label: 'LinkedIn',
+        href: 'https://www.linkedin.com/in/chibuike-anyaba',
+      },
+    ],
     onBackToTop: () => undefined,
   },
 };

@@ -14,22 +14,23 @@ export const Default: Story = {
   args: {
     email: 'chibuikeanyaba@gmail.com',
     intro:
-      'I am open to internship and junior front-end opportunities where I can contribute to product work and grow in a strong engineering environment.',
+      'I am open to internship and junior opportunities where thoughtful product work, clean implementation, and steady collaboration are valued.',
     actions: [
       {
         label: 'GitHub',
         href: 'https://github.com/canyaba',
-        helper: 'Code samples and active project history.',
+        helper:
+          'Code samples, component-library work, and active project history.',
       },
       {
         label: 'LinkedIn',
         href: 'https://www.linkedin.com/in/chibuike-anyaba',
-        helper: 'Professional background and education.',
+        helper: 'Professional background, education, and current direction.',
       },
       {
-        label: 'Resume Resource',
+        label: 'Supporting Resource',
         href: 'https://docs.docker.com/',
-        helper: 'Deployment-oriented learning reference.',
+        helper: 'Packaging and deployment-oriented reference material.',
       },
     ],
   },
