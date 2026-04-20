@@ -4,18 +4,19 @@ This project is a production-ready Create React App portfolio that reuses the co
 
 ## Portfolio Sections
 
-- Basic Information
-- Work
+- Home
+- About
 - Skills
-- Resources
-- Developer Setup
+- Portfolio / Projects
+- Contact Me
 
 ## Tech Stack
 
 - React
 - TypeScript
 - Create React App
-- Styled Components
+- Tailwind CSS
+- Storybook
 - Jest and React Testing Library
 - Docker
 - Nginx
@@ -26,10 +27,11 @@ The Dockerfile uses a multi-stage build so dependencies and build tooling stay i
 
 The delivery flow also reflects a simple CI/CD pipeline:
 
-1. Build the React app with `npm ci` and `npm run build`.
-2. Run automated checks such as tests and linting before release.
-3. Package the same production artifact into a Docker image.
-4. Serve the compiled files through Nginx for a predictable deployment target.
+1. Install dependencies with `npm ci`.
+2. Run `npm.cmd run validate` to check formatting, linting, and tests.
+3. Build the React production bundle with `npm.cmd run build`.
+4. Package the same production artifact into a Docker image.
+5. Serve the compiled files through Nginx for a predictable deployment target.
 
 ## Required Docker Details
 
@@ -58,10 +60,30 @@ Run the test suite once:
 npm.cmd run test:ci
 ```
 
+Run the full local validation workflow:
+
+```powershell
+npm.cmd run validate
+```
+
 Create a production build:
 
 ```powershell
 npm.cmd run build
+```
+
+## Review Components With Storybook
+
+Start Storybook locally:
+
+```powershell
+npm.cmd run storybook
+```
+
+Create a static Storybook build:
+
+```powershell
+npm.cmd run build-storybook
 ```
 
 ## Build the Docker Image
@@ -75,7 +97,7 @@ docker build -t anyaba_chibuike_portfolio:latest .
 Use the exact container name required by the assignment:
 
 ```powershell
-docker run --name anyaba_chibuike_coding_assignment14 -p 5575:80 anyaba_chibuike_portfolio:latest
+docker run --rm --name anyaba_chibuike_coding_assignment14 -p 5575:80 anyaba_chibuike_portfolio:latest
 ```
 
 Once the container is running, open:
@@ -86,11 +108,34 @@ http://localhost:5575
 
 ## Stop and Remove the Container
 
+If the container was started with `--rm`, stopping it is enough:
+
 ```powershell
 docker stop anyaba_chibuike_coding_assignment14
-docker rm anyaba_chibuike_coding_assignment14
 ```
+
+If a previous container was created without `--rm`, remove it before rerunning:
+
+```powershell
+docker rm -f anyaba_chibuike_coding_assignment14
+```
+
+## Demo Checklist
+
+Run these commands before demonstrating the project:
+
+```powershell
+npm.cmd run validate
+npm.cmd run build
+npm.cmd run build-storybook
+docker build -t anyaba_chibuike_portfolio:latest .
+docker run --rm --name anyaba_chibuike_coding_assignment14 -p 5575:80 anyaba_chibuike_portfolio:latest
+```
+
+Then open `http://localhost:5575`.
 
 ## CI/CD Summary for Submission
 
-This project demonstrates CI/CD by separating development from deployment. During continuous integration, the application can be tested, linted, and built automatically whenever code changes are pushed. During continuous delivery, the verified production build is packaged into a Docker image and can be deployed consistently anywhere Docker is available. The result is faster feedback, fewer release issues, and a repeatable delivery process.
+This project demonstrates CI/CD by separating development from deployment. The GitHub Actions workflow in `.github/workflows/ci.yml` can run automated checks when code changes are pushed. During continuous integration, the application can be formatted, linted, tested, and built. During continuous delivery, the verified production build is packaged into a Docker image and can be deployed consistently anywhere Docker is available.
+
+The result is faster feedback, fewer release issues, and a repeatable delivery process.
